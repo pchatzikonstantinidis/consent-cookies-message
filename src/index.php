@@ -21,16 +21,19 @@ $translations = json_decode(file_get_contents($lang_file), true);
 if (json_last_error() !== JSON_ERROR_NONE) {
     die("Error loading translations. Please try again later.");
 }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="<?php echo htmlspecialchars($lang); ?>">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Consent</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+
     <div id="cookie-consent" class="cookie-consent">
         <p id="consent-message"><?php echo htmlspecialchars($translations['cookieConsent']['message']); ?></p>
         <div class="consent-buttons">
@@ -54,4 +57,5 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 
     <script src="scripts/app.js"></script>
 </body>
+
 </html>
