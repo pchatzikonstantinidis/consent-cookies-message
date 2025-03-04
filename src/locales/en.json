@@ -1,0 +1,9 @@
+{
+  "cookieConsent": {
+    "message": "We use cookies to ensure you get the best experience on our website. By clicking 'Accept', you consent to our use of cookies.",
+    "acceptButton": "Accept",
+    "rejectButton": "Reject",
+    "learnMore": "Learn more",
+    "fullPolicy": "This is the full cookies policy text in English."
+  }
+}

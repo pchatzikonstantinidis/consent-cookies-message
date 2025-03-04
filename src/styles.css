@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+p {
+    margin: 0;
+}
+#cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: .5rem;
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    animation: fadeUp 1s ease-in-out;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+#consent-message {
+    font-size: .8rem;
+    flex: 1;
+    text-align: left;
+}
+
+.consent-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    flex-wrap: nowrap;
+    gap: .5rem;
+}
+
+.consent-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: .25rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: .9em;
+}
+
+.consent-button.reject {
+    background-color: #f44336;
+}
+
+.consent-button.learn-more {
+    background-color: #2196F3;
+}
+
+.consent-button:hover {
+    opacity: 0.8;
+}
+
+.language-selector {
+    display: none;
+}
+
+.lang-button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.lang-button:hover {
+    opacity: 0.8;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 1% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 800px;
+    color: black;
+    overflow: auto;
+    max-height: 90vh;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -1rem;
+    margin-right: -.5rem;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#full-policy {
+    color: #000;
+    margin: 1rem .5rem;
+}
+
+#full-policy h2, #full-policy h3, #full-policy h4 {
+    color: #333;
+    margin: 1rem 0;
+}
+
+#full-policy p {
+    margin: 1rem 0;
+    line-height: 1.5;
+}
+
+#full-policy table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+#full-policy table, #full-policy th, #full-policy td {
+    border: 1px solid #ddd;
+}
+
+#full-policy th, #full-policy td {
+    padding: 8px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    #cookie-consent {
+        flex-direction: column;
+    }
+
+    #consent-message {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .consent-buttons {
+        justify-content: center;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    .consent-button, .lang-button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .modal-content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .consent-buttons {
+        flex-wrap: wrap;
+    }
+
+    #full-policy h2 {
+        font-size: 1.5em;
+    }
+
+    #full-policy h3 {
+        font-size: 1.3em;
+    }
+
+    #full-policy h4 {
+        font-size: 1.1em;
+    }
+
+    #full-policy p {
+        font-size: 0.9em;
+    }
+
+    #full-policy table, #full-policy th, #full-policy td {
+        font-size: 0.9em;
+    }
+}
