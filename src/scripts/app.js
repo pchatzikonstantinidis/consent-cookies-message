@@ -31,12 +31,16 @@ document.addEventListener("DOMContentLoaded", function() {
         consentContainer.style.display = "flex";
     } else {
         consentContainer.style.display = "none";
+        if (userConsent.status === "accepted") {
+            loadTrackingScripts();
+        }
     }
 
     // Accept cookies
     acceptButton.addEventListener("click", function() {
         setConsent("accepted");
         console.log("Cookies accepted");
+        loadTrackingScripts();
         fadeOut(consentContainer);
     });
 
@@ -110,5 +114,34 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             element.style.display = "none";
         }, 500);
+    }
+
+    function loadTrackingScripts() {
+        // Load Google Analytics script
+        const gaScript = document.createElement("script");
+        gaScript.src = "https://www.googletagmanager.com/gtag/js?id=YOUR_GOOGLE_ANALYTICS_ID";
+        gaScript.async = true;
+        document.head.appendChild(gaScript);
+
+        gaScript.onload = function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "YOUR_GOOGLE_ANALYTICS_ID");
+        };
+
+        // Load other tracking scripts here
+        // Example: Facebook Pixel
+        const fbScript = document.createElement("script");
+        fbScript.src = "https://connect.facebook.net/en_US/fbevents.js";
+        fbScript.async = true;
+        document.head.appendChild(fbScript);
+
+        fbScript.onload = function() {
+            fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
+            fbq('track', 'PageView');
+        };
     }
 });
