@@ -3,16 +3,6 @@
 This project is a simple implementation of a cookie consent banner with multi-language support. It includes HTML, CSS, JavaScript, and PHP files to handle the display and functionality of the cookie consent banner.
 
 ## Project Structure
-README.md
-src/
-  ├── index.php
-  ├── locales/
-  │   ├── el.json
-  │   └── en.json
-  ├── scripts/
-  │   └── app.js
-  └── styles.css
-
 
 ### Files
 
